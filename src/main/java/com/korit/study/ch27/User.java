@@ -1,6 +1,7 @@
 package com.korit.study.ch27;
 
 public class User {
+
     private String username;
     private String password;
 
@@ -9,18 +10,38 @@ public class User {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
-public static class UserPrint2{
+    public class UserPrinter {
         private String printValue;
-        public UserPrint2(String printValue){
+
+        public UserPrinter(String printValue) {
             this.printValue = printValue;
         }
+
+        public void print() {
+            System.out.println(printValue);
+        }
+
     }
-    public class void UserPrinter(){
-    String printValue;
+
+    public static class UserPrinter2 {
+        private String printValue;
+
+        public UserPrinter2(String printValue) {
+            this.printValue = printValue;
+        }
+
+        public void print() {
+            System.out.println(printValue);
+        }
 
     }
 
 }
-
