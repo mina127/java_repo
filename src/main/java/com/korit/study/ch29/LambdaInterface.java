@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class LambdaInterface {
@@ -68,6 +65,13 @@ public class LambdaInterface {
 
         //하나의 값으로 하나씩 실행가능
 
+        //forEach()
+        List<String> nameList = List.of("김준일","김준이");
+        nameList.forEach(n-> System.out.println(n));
+        nameList.forEach(System.out::println); // 더블콜론 -> 람다의 메서드 참조
+
+
+
         //3. 매개변수 x,리턴 o
         String str = null;
         Supplier<Boolean> boolSupplier = () -> Objects.isNull(str);
@@ -115,7 +119,11 @@ public class LambdaInterface {
         String foundName = names.stream().filter(name -> name.equals("김준이")).collect(Collectors.toList()).getFirst();
         System.out.println(foundName);
 
-
+        //매개변수 o, return o,둘의 자료형이 동일하면
+        UnaryOperator<String> f1 = s-> s + "문자열";
+        Function<String, String> f2 = s-> s + "문자열";
+        BiFunction<String, String,String> f3 = (s1,s2)-> s1 + s2;
+        BinaryOperator<String> f4 = (s1,s2)-> s1 + s2;
     }
 
 

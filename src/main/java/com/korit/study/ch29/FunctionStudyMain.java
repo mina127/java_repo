@@ -40,6 +40,7 @@ class UserEntity{
     }
 }
 
+
 public class FunctionStudyMain {
     static void main() {
         Function<Map<String,Object>, Map<String,Object>> passwordEncoding = data -> {
