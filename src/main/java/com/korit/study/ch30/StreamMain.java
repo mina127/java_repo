@@ -43,6 +43,13 @@ public class StreamMain {
 
 
         List<Integer> nums = StreamMap.map(strNums,strNum -> Integer.parseInt(strNum) * 10);
+        //2.filter() 분류
+        List<Integer> odds = nums.stream().filter(num -> num % 2 != 0)
+                .toList();
+        System.out.println(odds);
+
+
+
     }
     class StreamMap{
         public static <T,R> List<R> map (List<T> list,Function <T,R> action){
