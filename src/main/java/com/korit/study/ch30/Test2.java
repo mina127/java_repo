@@ -72,9 +72,12 @@ public class Test2 {
                 new Product("모니터", 300000),
                 new Product("USB", 15000)
         );
-        List<Product> p = products.stream().filter(s-> s.getPrice() >= 50000 && s.getPrice() <=500000 ).toList();
+        List<String> p = products.stream().filter(s-> s.getPrice() >= 50000 && s.getPrice() <=500000 ).map(
+                s-> s.getName()
+        ).toList();
+        System.out.println(p);
 
-        System.out.println(p.get(0).name +" "+  p.get(1).name);
+
 
         List<String> emails = Arrays.asList(
                 "user1@gmail.com",
@@ -94,9 +97,11 @@ public class Test2 {
                 new Person("정지원", 16),
                 new Person("최수현", 22)
         );
-        List<Person> people2 = people.stream().filter(s-> s.getAge() >= 20).toList();
-        people2.forEach(pp -> System.out.println(pp.getName() + " (" + pp.getAge() + ")"));
-
+        List<String> people2 = people.stream()
+                .filter(s-> s.getAge() >= 20)
+                .map(s-> s.getName() + "(" + s.getAge() +")")
+                .toList();
+        System.out.println(people2);
 
 
     }
